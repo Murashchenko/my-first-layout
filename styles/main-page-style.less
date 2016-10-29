@@ -1,0 +1,461 @@
+@media only all {
+// overall styles
+
+[class$="button"] {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+  color: black;
+  text-decoration: none;
+  border: 1px solid;
+  background-color: transparent;
+  padding: 0.8em 2.4em;
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
+  &:hover {
+    box-shadow: 0 3px 5px -1px #999;
+    color: black;
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+.hdr {
+  background-image:  url('../imgs/background-hdr-small.jpg');
+  padding-top: 250px;
+  height: 100vh;
+  min-height: 700px;
+  &__h1 {
+    width: 89%;
+    margin: 0 auto;
+
+    color: white;
+    font-weight: normal;
+    font-size: 3.5em;
+    line-height: 1.75em;
+    letter-spacing: 0.03em;
+  }
+}
+
+.main {
+  padding: 4.44em 0;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.main-section {
+  &:not(.works-section) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  &:not(:first-child):not(:last-child) {
+    margin: 8.88em auto;
+  }
+  &__h2 {
+    font-family: 'Open Sans';
+    font-size: inherit;
+    letter-spacing: 0.1em;
+    margin-bottom: 2.5em;
+    .small {
+      .small-yellow-font();
+      font-size: 0.96em;
+      font-weight: normal;
+    }
+    .big {
+      font-size: 2.4em;
+      line-height: 1.1em;
+    }
+  }
+}
+// overall styles end
+
+// about-section styles
+.about-section {
+  padding: 0 4%;
+  &__content {
+    margin: 2em 0;
+  }
+}
+// about-section styles end
+
+// works-section styles
+.works-list {
+  .ul-reset();
+  margin-top: 3em;
+  line-height: 0;
+  &__item {
+    line-height: @line;
+    position: relative;
+
+    background: #ccc no-repeat 0 0;
+    background-size: cover;
+
+    margin: 0 3px 3px 0;
+    width: 100%;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 105%;
+      height: 105%;
+
+      position: absolute;
+      top: -110%;
+      left: -2%;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.7);
+
+      -webkit-transition: top 0.2s;
+      transition: top 0.2s;
+    }
+    .link-to-works {
+      display: block;
+      width: 7em;
+      height: 2.2em;
+
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      margin: -1.25em 0 0 -3.65em;
+      z-index: 3;
+
+      line-height: 2.2em;
+      vertical-align: middle;
+      background: black;
+      border: 2px solid white;
+      border-radius: ~"20% / 50%";
+      color: white;
+      text-decoration: none;
+
+      -webkit-transition: 0.2s;
+      transition: 0.2s;
+      &:hover {
+        font-size: 1.3em;
+      }
+    }
+  }
+
+
+  .different-fons(@n) when (@n <= 8) {
+    &__item:nth-child(@{n}) {
+      background-image: url('../imgs/clmn-@{n}.jpg');
+    }
+    .different-fons(@n + 1);
+  }
+  .different-fons(1);
+
+  &__proportion {
+     padding-bottom: 75%;
+  }
+
+  &__item:focus,
+  &__item:hover {
+    outline: none;
+    &::before {
+      top: -2%;
+    }
+    .link-to-works {
+      top: 50%;
+      -webkit-animation: link-jump 0.3s ease-in 0.2s;
+      animation: link-jump 0.3s ease-in 0.2s;
+    }
+  }
+}
+// works-section styles end
+
+// amazing-people-section styles
+.amazing-people-section {
+  padding: 0 4%;
+  &__content {
+    padding-bottom: 2em;
+  }
+}
+.amazing-people-list {
+  .ul-reset();
+  text-align: left;
+  overflow: hidden;
+
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: -webkit-wrap;
+  flex-wrap: -moz-wrap;
+  flex-wrap: -ms-wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  &__item {
+    margin: 0 5px 2em 0;
+    width: 100%;
+    background: #f9f9f9;
+    padding-bottom: 1px;
+    img {
+      width: 100%;
+    }
+  }
+  &__h3 {
+    font-size: inherit;
+    padding: 0 8%;
+    margin: 0;
+    .small {
+      .small-yellow-font();
+      line-height: 3em;
+    }
+    .big {
+      font-family: 'Open Sans';
+      font-size: 1.5em;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+    }
+  }
+  &__content {
+    margin: 2em 0 2.5em;
+    padding: 0 8%;
+    color: #505d68;
+    line-height: @line;
+  }
+}
+// amazing-people-section styles end
+
+// post-section styles
+.post-section {
+  padding: 0 4%;
+  // background: red;
+}
+.post-section__chys-post {
+  margin: 2em 0;
+  line-height: 0;
+  background: #f9f9f9;
+  text-align: left;
+}
+
+.chys-post {
+  &-img{
+    width: 100%;
+  }
+  &-content {
+    line-height: @line;
+    padding: 2em;
+    &__date {
+      line-height: 1em;
+      text-transform: uppercase;
+    }
+    &__h3 {
+      font-size: 2em;
+      line-height: 1.1em;
+      margin: 0.5em 0 0.8em;
+    }
+    &__button {
+      margin-top: 1.5em;
+      display: none;
+    }
+  }
+}
+// post-section style end
+
+// contact-section styles
+.contact-section {
+  padding: 0 4%;
+  &__map {
+    display: block;
+    width: 100%;
+    height: 300px;
+    padding: 0;
+    margin: 0;
+  }
+}
+.contact-list {
+  .ul-reset();
+  background: #f9f9f9;
+  &__contact-box {
+    // background: red;
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+    padding: 0 5%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  &__h4 {
+    margin: 2.75em 0;
+    font-size: 0.9em;
+    color: #505d68;
+    text-transform: uppercase;
+  }
+  &__p {
+    margin: 2em 0;
+    >a {
+      color: inherit;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+      >span:nth-child(2) {
+        display: none;
+      }
+    }
+  }
+}
+// contact section styles end
+} // media all end
+@media (min-width: 500px) {
+  .hdr {
+    padding-top: 340px;
+    min-height: 900px;
+    &__h1 {
+      font-size: 4.5em;
+      line-height: 1.75em;
+    }
+  }
+} // media (min-width: 500px) end
+
+
+@media (min-width: 750px) {
+.hdr {
+  padding-top: 1px;
+
+  min-height: 600px;
+  background-image: url('../imgs/background-hdr-big.jpg');
+  &__arrow-down {
+    display: none;
+  }
+  &__h1 {
+    margin-top: -webkit-calc(~"50vh - 69px");
+    margin-top: calc(~"50vh - 69px");
+  }
+  &__content-wrapper {
+    margin-top: 235px;
+  }
+}
+
+.main-section {
+  &__h2 {
+    .small {
+      font-size: 0.7em;
+      line-height: 3em;
+      font-weight: bold;
+    }
+  }
+}
+
+.works-list {
+  &__item {
+    display: inline-block;
+    min-width: -moz-calc(~"25% - 3px");
+    min-width: -webkit-calc(~"25% - 3px");
+    min-width: calc(~"25% - 3px");
+    max-width: -moz-calc(~"50% - 3px");
+    max-width: -webkit-calc(~"50% - 3px");
+    max-width: calc(~"50% - 3px");
+    width: 24%;
+    width: -moz-calc(~"1000000px - 100000%");
+    width: -webkit-calc(~"1000000px - 100000%");
+    width: calc(~"1000000px - 100000%");
+  }
+}
+
+.amazing-people-list {
+  font-size: 0.75em;
+  padding-left: 5px;
+
+
+  &__item {
+    display: inline-block;
+    vertical-align: top;
+    width: 32%;
+    width: calc(~"33% - 5px");
+    margin-bottom: 0;
+
+  }
+}
+
+.post-section {
+  padding: 0;
+}
+.post-section__chys-post {
+  width: 100%;
+  margin: 40px 0 64px;
+  overflow: hidden;
+  font-size: 16px;
+  text-align: left;
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+.chys-post {
+  &-img{
+    float: left;
+    width: 50%;
+    margin: 0 2em 1em 0;
+  }
+  &-content {
+    padding-bottom: 1em;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    &__p {
+      overflow: hidden;
+    }
+    &__date {
+      font-family: 'Open Sans';
+      font-size: 0.8em;
+    }
+    &__h3 {
+      font-size: 1.875em;
+    }
+    &__button {
+      padding: 0.8em 2.7em;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.contact-list {
+  &__p{
+    padding: 0 10%;
+    >a>span:nth-child(2) {
+      display: inline;
+    }
+  }
+  &__h4 {
+    font-size: 0.7em;
+  }
+}
+} // media (min-width: 750px) end
+
+
+// HELPERS
+@line: 1.77em;
+.small-yellow-font() {
+  color: #d4af37;
+  text-transform: uppercase;
+  line-height: 2em;
+}
+.ul-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@keyframes link-jump {
+  50% {
+    top: 47%;
+  }
+}
+
+@-webkit-keyframes link-jump {
+  50% {
+    top: 47%;
+  }
+}
+// HELPERS end

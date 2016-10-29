@@ -1,0 +1,173 @@
+@media only all {
+
+  .hdr {
+    background-image: url('../imgs/background-hdr-projects.jpg');
+    background-position: 50% 50%;
+    height: 400px;
+    height: 100vh;
+    min-height: 400px;
+    padding: 0;
+    &__arrow-down {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 30px;
+    }
+  }
+
+  .main {
+    padding: 1px 0;
+  }
+
+  // nora-sect
+
+  .nora-sect {
+    margin: 0 auto;
+    max-width: 1020px;
+    padding: 5.6% 5.6%;
+    background: #f9f9f9;
+    text-align: left;
+    &-wrapper {
+      margin: 4.5em 0;
+      padding: 0 4%;
+    }
+    &__list {
+      .ul-reset();
+    }
+    &__content-area {
+      line-height: @line;
+      color: black;
+    }
+    &__content-h1 {
+      font-family: 'Open Sans';
+      font-size: 3em;
+      line-height: 1.5em;
+      margin: 0;
+    }
+    &__content-main {
+      font-family: 'Cardo';
+      margin: 3em 0;
+    }
+
+    &__list-project {
+      line-height: 0;
+      margin-top: 0.5em;
+    }
+
+    &__list-img {
+      width: 100%;
+    }
+  }
+
+  // nora-sect
+
+  // social-network-button-section
+
+  .s-n-btn-section {
+    max-width: 1184px;
+    margin: 5.7em auto 4em;
+  }
+
+  .s-n-btn-list {
+    .ul-reset();
+    &__item {
+      margin: 1em 0;
+    }
+    &__button {
+      display: inline-block;
+      border: 1px solid;
+      padding: 0.8em 0;
+      width: 16.5em;
+      max-width: 90%;
+      margin: 0 auto;
+
+      color: #a1a1a1;
+      font-size: 0.83em;
+      text-decoration: none;
+      text-transform: uppercase;
+      -webkit-transition: 0.2s linear;
+      transition: 0.2s linear;
+      &:hover {
+        box-shadow: 0 3px 5px -1px #999;
+        color: white;
+        border-color: transparent;
+
+        -webkit-transform: scale(1.05);
+        transform: scale(1.05);
+      }
+      &.fb:hover {
+        background: #3D5B99;
+      }
+      &.tw:hover {
+        background: #1DA1F2;
+      }
+      &.gl:hover {
+        background: #DB4437;
+      }
+    }
+  }
+
+  // social-network-button-section
+}//media all
+
+@media (min-width: 500px) {
+  .hdr {
+    height: 600px;
+    height: 100vh;
+    min-height: 600px;
+  }
+}//media 500px
+
+
+@media (min-width: 750px) {
+  .nora-sect {
+    &__content-main {
+      margin: 5em 0;
+    }
+    &__list {
+      vertical-align: top;
+      display: inline-block;
+      &:first-child {
+        width: 64%;
+      }
+      &:nth-child(2) {
+        padding-left: 6%;
+        width: 29%;
+        > li {
+          margin-top: 0.3em;
+        }
+      }
+      &-project {
+        margin-top: 1em;
+      }
+    }
+  }
+
+  .s-n-btn-list {
+    &__item {
+      display: inline-block;
+      width: 33.3%;
+    }
+  }
+}//media 750px
+
+// HELPERS
+@line: 1.77em;
+.ul-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// HELPERS end
+
+@font-face {
+    font-family: 'Cardo';
+    src: url('../fonts/cardo-regular-webfont.eot');
+    src: url('../fonts/cardo-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/cardo-regular-webfont.woff2') format('woff2'),
+         url('../fonts/cardo-regular-webfont.woff') format('woff'),
+         url('../fonts/cardo-regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}

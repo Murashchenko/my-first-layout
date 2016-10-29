@@ -1,0 +1,435 @@
+@media only All{
+
+body {
+  line-height: 1.77em;
+  font-size: 15px;
+  text-align: center;
+  font-family: 'Open Sans Light', sans-serif;
+  color: #7c8184;
+  min-width: 250px;
+}
+
+
+img {
+  font-size: 15px;
+  line-height: 1.5em;
+}
+
+
+.button-to-top {
+  @color: #d4af37;
+  position: relative;
+  position: fixed;
+  z-index: 100;
+  top: 1em;
+  right: 3%;
+  padding-top: 0.2em;
+  color: @color;
+  cursor: pointer;
+  display: none;
+  opacity: 0;
+  padding: 0.5em;
+  padding-bottom: 0;
+  -webkit-transition: opacity 0.8s;
+  transition: opacity 0.8s;
+  background: white;
+  &_opacity {
+    opacity: 0.8;
+  }
+  &:hover {
+    opacity: 1;
+    &::before {
+      -webkit-animation: arrow-up 1s infinite ease-in;
+      animation: arrow-up 1s infinite ease-in;
+    }
+  }
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0.4em;
+    right: 50%;
+    margin-right: -1em;
+    border: 1em solid @color;
+    border-top: 0;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    border-bottom-width: 0.5em;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+  }
+}
+// HEADER
+
+.hdr {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 600px;
+  position: relative;
+  overflow: hidden;
+
+  background: #999 no-repeat 100% 50%;
+  background-size: cover;
+
+  &__arrow-down {
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 20px auto 0;
+
+    overflow: hidden;
+    text-indent: -10000px;
+    background: url('../imgs/arrow-down.png') no-repeat 50% 55%;
+    background-size: 60%;
+    border: 2px solid white;
+    border-radius: 50%;
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+  }
+
+  &__arrow-down:hover {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-animation: arrow-down 1s infinite linear;
+    animation: arrow-down 1s infinite linear;
+  }
+
+  &__logo {
+    line-height: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    padding: 1.2% 4% 1.2%;
+    text-align: left;
+    background: rgba(41, 49, 52, 0.7);
+  }
+
+  &__nav {
+    width: 42px;
+    height: 42px;
+    padding: 1.2%;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    background: rgba(41, 49, 52, 0.9);
+    cursor: pointer;
+    }
+}
+
+.nav__opener {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.nav__icon {
+  display: block;
+  width: 30px;
+  height: 3px;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+
+  background: white;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: -10px;
+    -webkit-transition: width 0.4s, -webkit-transform 0.4s;
+    transition: width 0.4s, -webkit-transform 0.4s;
+    transition: width 0.4s, transform 0.4s;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    bottom: -10px;
+    -webkit-transition: width 0.4s, -webkit-transform 0.4s;
+    transition: width 0.4s, -webkit-transform 0.4s;
+    transition: width 0.4s, transform 0.4s;
+  }
+}
+
+.main-menu {
+  .ul-reset();
+  position: absolute;
+  width: 8em;
+  right: -8em;
+  top: 100%;
+  z-index: 15;
+
+  overflow: hidden;
+  opacity: 0;
+  -webkit-transition: opacity 0.4s, right 0.4s, top 0.4s;
+  transition: opacity 0.4s, right 0.4s, top 0.4s;
+  &__item {
+    background: rgba(41, 49, 52, 0.7);
+    > a {
+      display: block;
+      padding: 5px;
+
+      color: white;
+      text-decoration: none;
+      background: rgba(41, 49, 52, 0.9);
+      border-bottom: 1px solid black;
+    }
+
+    > a:hover {
+      background: rgba(0, 0, 0, 0.9);
+    }
+  }
+}
+
+.hdr__nav.js-active {
+  .nav__opener::before {
+    display: none;
+  }
+  .main-menu {
+    opacity: 1;
+    right: 0;
+  }
+  .nav__icon {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+    &::before {
+      width: 60%;
+      -webkit-transform: translate(12px, 5px) rotate(30deg);
+      transform: translate(12px, 5px) rotate(30deg);
+    }
+    &::after {
+      width: 60%;
+      -webkit-transform: translate(12px, -5px) rotate(-30deg);
+      transform: translate(12px, -5px) rotate(-30deg);
+    }
+  }
+}
+//HEADER end
+
+//FOOTER
+
+.ftr {
+  padding: 30px 0px 0px;
+  background: #eeeeee;
+  font-size: 0.88em;
+
+  &__positioner {
+    max-width: 768px;
+    margin: 0 auto;
+    text-align: justify;
+    vertical-align: bottom;
+
+    &::after {
+      display: inline-block;
+      content: 'a';
+      text-indent: -10000px;
+      width: 100%;
+    }
+  }
+
+  &__copyright {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
+    vertical-align: bottom;
+  }
+
+  &__address {
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: right;
+    font-style: normal;
+    > a {
+      text-decoration: none;
+      color: inherit;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+//FOOTER end
+
+} //media All end
+
+@media (min-width: 500px) {
+  body {
+    font-size: 29px;
+  }
+  .hdr {
+    font-size: 18px;
+    line-height: 1.77em;
+    height: 900px;
+    &__arrow-down {
+      width: 50px;
+      height: 50px;
+    }
+    &__logo {
+      img {
+        width: 366px;
+      }
+    }
+    &__nav {
+      width: 75px;
+      height: 81px;
+    }
+  }
+} // media 500px end
+
+@media (min-width: 750px) {
+    body {
+      font-size: 18px;
+    }
+    .hdr {
+      height: 600px;
+      background-position: 50% 100%;
+      &__arrow-down {
+        width: 30px;
+        height: 30px;
+      }
+      &__logo {
+        background: none;
+        padding-top: 24px;
+        img {
+          width: 190px;
+        }
+      }
+
+      &__nav {
+        height: 48px;
+        padding: 0;
+        background: none;
+        right: 3%;
+        margin-top: 18px;
+      }
+    }
+
+    .nav__opener{
+
+      &::before {
+      content: 'MENU';
+      display: block;
+      position: absolute;
+      top: 10px;
+      right: 80%;
+      color: white;
+      font-weight: bold;
+      }
+    }
+
+    .main-menu {
+      right: 100%;
+      top: -300px;
+      border-radius: 5px;
+      &__item {
+        @b-color: #296ea9;
+        background: none;
+        > a {
+          background: @b-color;
+          border: none;
+        }
+
+        > a:hover {
+          background: darken(@b-color, 4%);
+        }
+      }
+    }
+
+    .hdr__nav.js-active {
+      .main-menu {
+        top: 3px;
+        right: 100%;
+      }
+      .nav__icon{
+        -ms-transform: rotate(-180deg);
+        -webkit-transform: rotate(-180deg);
+        transform: rotate(-180deg);
+      }
+    }
+} //media 750px end
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('../fonts/opensanslight-webfont.eot');
+    src: url('../fonts/opensanslight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensanslight-webfont.woff2') format('woff2'),
+         url('../fonts/opensanslight-webfont.woff') format('woff'),
+         url('../fonts/opensanslight-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('../fonts/open_sans-webfont.eot');
+    src: url('../fonts/open_sans-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/open_sans-webfont.woff2') format('woff2'),
+         url('../fonts/open_sans-webfont.woff') format('woff'),
+         url('../fonts/open_sans-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes arrow-down{
+  25% {
+    background-position: 50% 55%;
+  }
+  75% {
+    background-position: 50% 68%;
+  }
+}
+
+@-webkit-keyframes arrow-down{
+  25% {
+    background-position: 50% 55%;
+  }
+  75% {
+    background-position: 50% 68%;
+  }
+}
+
+@keyframes arrow-up{
+  50% {
+    top: 0.2em;
+  }
+}
+
+@-webkit-keyframes arrow-up{
+  50% {
+    top: 0.2em;
+  }
+}
+
+// HELPERS
+@line: 1.77em;
+.ul-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// HELPERS end

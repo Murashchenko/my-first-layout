@@ -1,0 +1,184 @@
+@media only all {
+  .hdr {
+    background-image: url('../imgs/background-hdr-about-us-small.jpg');
+    background-position: 10% 50%;
+    height: 400px;
+    height: 100vh;
+    min-height: 400px;
+    padding: 0;
+    &__arrow-down {
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 30px;
+    }
+  }
+
+
+  .our-creed {
+    color: #021725;
+    padding: 7em 4%;
+    font-size: 1.2em;
+    max-width: 730px;
+    margin: 0 auto;
+  }
+
+  .services {
+    display: table;
+    word-spacing: -.36em;
+    width: 100%;
+
+    text-align: left;
+    font-size: 1.1em;
+    color: #505d68;
+    background: #f9f9f9;
+    overflow: hidden;
+    &-wrapper {
+      max-width: 730px;
+      margin: 0 auto;
+    }
+
+    &__table-img {
+      word-spacing: 0;
+      vertical-align: top;
+      margin: 0 auto;
+
+      min-width: -webkit-calc(50%);
+      min-width: calc(50%);
+      max-width: -webkit-calc(100%);
+      max-width: calc(100%);
+      width: 100%;
+      width: -webkit-calc(~"6500000px - 500000%");
+      width: calc(~"6500000px - 500000%");
+    }
+
+    &__layout-right {
+      word-spacing: 0;
+      vertical-align: top;
+      display: inline-block;
+
+      min-width: -webkit-calc(50%);
+      min-width: calc(50%);
+      max-width: -webkit-calc(100%);
+      max-width: calc(100%);
+      width: 100%;
+      width: -webkit-calc(~"6500000px - 500000%");
+      width: calc(~"6500000px - 500000%");
+    }
+
+    &__h1 {
+      font-family: 'Open sans';
+      padding:  0.8em;
+      padding-bottom: 0;
+      margin: 0;
+      font-size: 2.5em;
+      line-height: 1em;
+      letter-spacing: 0.05em;
+    }
+
+    &__content {
+      .ul-reset();
+      width: 100%;
+    }
+
+    &__offer {
+      display: inline-block;
+      margin: 0;
+      padding: 4em 2em;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      vertical-align: bottom;
+      &-content {
+        padding: 0;
+        margin: 0;
+      }
+    }
+
+    &__list {
+      .ul-reset();
+      padding: 2em;
+      padding-top: 0;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      &-wrapper {
+        display: inline-block;
+        vertical-align: bottom;
+        width: 100%;
+      }
+    }
+
+    &__list-item {
+      &::before {
+        content: '- ';
+      }
+    }
+  }
+}//media all
+
+@media (min-width: 500px) {
+  .hdr {
+    height: 600px;
+    height: 100vh;
+    min-height: 600px;
+  }
+}//media 500px
+
+
+@media (min-width: 750px) {
+  .hdr {
+    background-image: url('../imgs/background-hdr-about-us.jpg');
+    background-position: 40% 30%;
+  }
+
+  .our-creed {
+    font-size: 1em;
+  }
+
+  .services {
+    font-size: 1em;
+    &-wrapper {
+      min-width: -webkit-calc(730px);
+      min-width: calc(730px);
+      max-width: -webkit-calc(100%);
+      max-width: calc(100%);
+      width: -webkit-calc(~"500000% - 6500000px");
+      width: calc(~"500000% - 6500000px");
+    }
+    &__h1 {
+      margin-bottom: 0.6em;
+    }
+    &__content-wrapper {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      padding-top: -webkit-calc(~"31.75% - 206px");
+      padding-top: calc(~"31.75% - 206px");
+      padding-left: -webkit-calc(~"50% - 325px");
+      padding-left: calc(~"50% - 325px");
+    }
+    &__offer {
+      width: 50%;
+      padding: 2em 1em 2em 3em;
+      &-content {
+        max-width: 11em;
+      }
+    }
+    &__list-wrapper {
+      width: 50%;
+    }
+  }
+
+}//media 750px
+
+// HELPERS
+@line: 1.77em;
+.ul-reset() {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+// HELPERS end
